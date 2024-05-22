@@ -1,0 +1,20 @@
+[gd_scene load_steps=4 format=3 uid="uid://y8nkreyjf5ul"]
+
+[sub_resource type="CapsuleShape3D" id="CapsuleShape3D_tc2x3"]
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_c170n"]
+shading_mode = 0
+albedo_color = Color(0.301961, 0.278431, 0.278431, 1)
+
+[sub_resource type="CapsuleMesh" id="CapsuleMesh_qavt1"]
+material = SubResource("StandardMaterial3D_c170n")
+
+[node name="zombie" type="CharacterBody3D"]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.00335, 0)
+shape = SubResource("CapsuleShape3D_tc2x3")
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1, 0)
+mesh = SubResource("CapsuleMesh_qavt1")
