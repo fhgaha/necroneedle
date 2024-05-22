@@ -12,12 +12,12 @@ var state_to_string : String :
 # The current active state. At the start of the game, we get the `initial_state`.
 @onready var state: State = get_node(initial_state)
 
-var player : CharacterBody3D
+var player : MainChar
 var is_configured : bool = false
 
 func config() -> void:
 	#await owner.is_node_ready()
-	player = owner as CharacterBody3D
+	player = owner as MainChar
 	for child in get_children():
 		var s = child as State
 		s.state_machine = self
@@ -49,7 +49,7 @@ func transition_to(target_state_name: String, msg: Dictionary = {}) -> void:
 	# but you don't want them all, they won't be able to transition to states that aren't in the scene tree.
 	if not has_node(target_state_name):
 		return
-
+	
 	state.exit()
 	state = get_node(target_state_name)
 	state.enter(msg)
