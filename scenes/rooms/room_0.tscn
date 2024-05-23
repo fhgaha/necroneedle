@@ -1,7 +1,11 @@
-[gd_scene load_steps=6 format=3 uid="uid://c5t8sq4ns2ct5"]
+[gd_scene load_steps=7 format=3 uid="uid://c5t8sq4ns2ct5"]
 
 [ext_resource type="PackedScene" uid="uid://d0x7fekjnnueu" path="res://scenes/rooms/door.tscn" id="1_c0glc"]
 [ext_resource type="Script" path="res://scripts/Room.gd" id="1_m8c21"]
+
+[sub_resource type="NavigationMesh" id="NavigationMesh_b3ue1"]
+vertices = PackedVector3Array(-4.5, 0.5, -4.5, -4.5, 0.5, 4.5, 4.5, 0.5, 4.5, 4.5, 0.5, -4.5)
+polygons = [PackedInt32Array(3, 2, 0), PackedInt32Array(0, 2, 1)]
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_bkhjv"]
 albedo_color = Color(0.227451, 0.34902, 0.552941, 1)
@@ -18,14 +22,18 @@ script = ExtResource("1_m8c21")
 
 [node name="floor" type="Node3D" parent="."]
 
-[node name="MeshInstance3D" type="MeshInstance3D" parent="floor"]
+[node name="NavigationRegion3D" type="NavigationRegion3D" parent="floor"]
+navigation_mesh = SubResource("NavigationMesh_b3ue1")
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="floor/NavigationRegion3D"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.5, 0)
 layers = 2
 mesh = SubResource("BoxMesh_p2j2n")
+skeleton = NodePath("../..")
 
-[node name="StaticBody3D" type="StaticBody3D" parent="floor/MeshInstance3D"]
+[node name="StaticBody3D" type="StaticBody3D" parent="floor/NavigationRegion3D/MeshInstance3D"]
 
-[node name="CollisionShape3D" type="CollisionShape3D" parent="floor/MeshInstance3D/StaticBody3D"]
+[node name="CollisionShape3D" type="CollisionShape3D" parent="floor/NavigationRegion3D/MeshInstance3D/StaticBody3D"]
 shape = SubResource("ConcavePolygonShape3D_4h3vu")
 
 [node name="door" parent="." instance=ExtResource("1_c0glc")]

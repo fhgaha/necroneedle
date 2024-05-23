@@ -17,9 +17,3 @@ func run_once(seconds : float) -> void:
 	gpu_prtcl.emitting = true
 	await gpu_prtcl.finished
 	queue_free()
-
-func reparent_(old_parent: Node, new_parent: Node) -> SmokeParticle:
-	old_parent.remove_child(self)
-	new_parent.add_child(self)
-	global_position = old_parent.global_position
-	return self

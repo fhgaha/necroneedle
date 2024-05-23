@@ -17,7 +17,7 @@ var is_configured : bool = false
 
 func config() -> void:
 	#await owner.is_node_ready()
-	player = owner as MainChar
+	player = owner
 	for child in get_children():
 		var s = child as State
 		s.state_machine = self
@@ -47,8 +47,8 @@ func transition_to(target_state_name: String, msg: Dictionary = {}) -> void:
 	# Safety check, you could use an assert() here to report an error if the state name is incorrect.
 	# We don't use an assert here to help with code reuse. If you reuse a state in different state machines
 	# but you don't want them all, they won't be able to transition to states that aren't in the scene tree.
-	if not has_node(target_state_name):
-		return
+	if not has_node(target_state_name): return
+	if state != null && state.name == target_state_name: return
 	
 	state.exit()
 	state = get_node(target_state_name)

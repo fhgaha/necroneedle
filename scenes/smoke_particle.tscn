@@ -33,7 +33,6 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.445219, 0)
 emitting = false
 amount = 4
 lifetime = 0.5
-one_shot = true
 preprocess = 0.2
 speed_scale = 0.3
 fixed_fps = 60

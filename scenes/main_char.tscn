@@ -1,7 +1,7 @@
 [gd_scene load_steps=23 format=3 uid="uid://b8028tt8jjxav"]
 
 [ext_resource type="Script" path="res://scripts/MainChar.gd" id="1_y2clw"]
-[ext_resource type="Script" path="res://scripts/states/state_machine.gd" id="3_0oug8"]
+[ext_resource type="Script" path="res://scripts/states/main_char/state_machine.gd" id="3_0oug8"]
 [ext_resource type="Script" path="res://scripts/states/main_char/idle.gd" id="4_febui"]
 [ext_resource type="Texture2D" uid="uid://ssvb66sxv3iy" path="res://models/main_char/no_scale_anim/main_char_no_scale_anim_humanMaleA.png" id="5_a1fhi"]
 [ext_resource type="Script" path="res://scripts/states/main_char/strike_1.gd" id="5_wwt2i"]
@@ -218,9 +218,11 @@ bind/57/name = &"RightToes_end"
 bind/57/bone = -1
 bind/57/pose = Transform3D(-0.992789, 0.0095879, -0.119372, -0.119648, -0.0395768, 0.992024, 0.00479378, 0.99917, 0.0404369, -0.340612, -0.341564, -0.0149777)
 
-[sub_resource type="BoxShape3D" id="BoxShape3D_8cepa"]
-
 [sub_resource type="BoxMesh" id="BoxMesh_8o6w2"]
+size = Vector3(0.3, 0.3, 0.3)
+
+[sub_resource type="ConvexPolygonShape3D" id="ConvexPolygonShape3D_xkd1m"]
+points = PackedVector3Array(0.15, 0.15, 0.15, 0.15, 0.15, -0.15, -0.15, 0.15, 0.15, 0.15, -0.15, 0.15, 0.15, -0.15, -0.15, -0.15, 0.15, -0.15, -0.15, -0.15, 0.15, -0.15, -0.15, -0.15)
 
 [sub_resource type="Animation" id="Animation_g3rtq"]
 resource_name = "Idle"
@@ -1789,7 +1791,7 @@ mesh = SubResource("ArrayMesh_bjuay")
 skin = SubResource("Skin_c1aun")
 
 [node name="BoneAttachment3D" type="BoneAttachment3D" parent="main_char/Root/Skeleton3D"]
-transform = Transform3D(-0.0593383, -0.225654, -0.972399, -0.287979, -0.92883, 0.233116, -0.955797, 0.293863, -0.00986841, -0.574299, 1.42507, 0.0425305)
+transform = Transform3D(-0.0593382, -0.225654, -0.972399, -0.287979, -0.92883, 0.233117, -0.955797, 0.293863, -0.00986841, -0.574299, 1.42507, 0.0425303)
 bone_name = "RightHand"
 bone_idx = 40
 
@@ -1798,12 +1800,15 @@ transform = Transform3D(-0.111959, -0.543357, -1.80339, -0.425762, -1.75251, 0.5
 collision_layer = 8
 collision_mask = 2
 
-[node name="CollisionShape3D" type="CollisionShape3D" parent="main_char/Root/Skeleton3D/BoneAttachment3D/weapon"]
-shape = SubResource("BoxShape3D_8cepa")
-disabled = true
-
 [node name="MeshInstance3D" type="MeshInstance3D" parent="main_char/Root/Skeleton3D/BoneAttachment3D/weapon"]
+transform = Transform3D(1, 2.86579e-15, 0, 2.07733e-15, 1, 0, 0, 0, 1, -0.327692, 0.111858, -0.526171)
+visible = false
 mesh = SubResource("BoxMesh_8o6w2")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="main_char/Root/Skeleton3D/BoneAttachment3D/weapon"]
+transform = Transform3D(1, 2.86579e-15, 0, 2.07733e-15, 1, 0, 0, 0, 1, -0.327692, 0.111858, -0.526171)
+shape = SubResource("ConvexPolygonShape3D_xkd1m")
+disabled = true
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="main_char"]
 libraries = {

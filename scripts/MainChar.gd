@@ -8,6 +8,7 @@ class_name MainChar extends CharacterBody3D
 
 func _ready() -> void:
 	state_machine.config()
+	pass
 
 func _physics_process(delta: float) -> void:
 	pass
