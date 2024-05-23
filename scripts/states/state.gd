@@ -1,7 +1,7 @@
 class_name State extends Node
 
 var state_machine : StateMachine = null
-var player : CharacterBody3D
+var player : MainChar
 
 # Virtual function. Receives events from the `_unhandled_input()` callback.
 func handle_input(_event: InputEvent) -> void:

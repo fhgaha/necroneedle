@@ -1,4 +1,4 @@
-extends State
+class_name Idle extends State
 
 # Upon entering the state, we set the Player node's velocity to zero.
 func enter(_msg := {}) -> void:

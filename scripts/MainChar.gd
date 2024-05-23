@@ -4,6 +4,7 @@ class_name MainChar extends CharacterBody3D
 @onready var state_machine: StateMachine = $state_machine
 @onready var anim_player: AnimationPlayer = $main_char/AnimationPlayer
 @onready var root: Node3D = $main_char/Root
+@onready var weapon: Area3D = $main_char/Root/Skeleton3D/BoneAttachment3D/weapon
 
 func _ready() -> void:
 	state_machine.config()

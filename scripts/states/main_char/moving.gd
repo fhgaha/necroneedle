@@ -1,5 +1,6 @@
-extends State
+class_name Moving extends State
 
+@export var use_basis_z : bool = false
 @export var SPEED : float = 5.0 
 const JUMP_VELOCITY = 4.5
 var gravity: float = ProjectSettings.get_setting("physics/3d/default_gravity")
@@ -37,8 +38,11 @@ func move(_delta: float):
 	if direction:
 		player.velocity.x = direction.x * SPEED
 		player.velocity.z = direction.z * SPEED
-		var to_look_at = -Vector3(direction.x, player.global_position.y, direction.z)
-		player.look_at(player.global_position + to_look_at)
+		if use_basis_z:
+			player.transform.basis.z = direction
+		else:
+			var to_look_at = -Vector3(direction.x, player.global_position.y, direction.z)
+			player.look_at(player.global_position + to_look_at)
 	else:
 		player.velocity.x = 0
 		player.velocity.z = 0

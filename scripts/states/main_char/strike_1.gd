@@ -1,15 +1,15 @@
-extends State
+class_name Strike_1 extends State
 
 var anim_player : AnimationPlayer
-#var offset : Vector3 = Vector3(0, 0, 1.3)
 var trans_to_strike_2 : bool = false
+var time_passed : float = 0
 
 func enter(_msg := {}) -> void:
+	((player.weapon as Area3D).find_child("CollisionShape3D") as CollisionShape3D).disabled = false
+	
 	anim_player = player.anim_player
-	#player.root.position -= offset
 	anim_player.play("strike-1")
 	await anim_player.animation_finished
-	#stupid shit to position doesnt change instantly
 	await get_tree().process_frame
 	if trans_to_strike_2:
 		trans_to_strike_2 = false
@@ -22,7 +22,13 @@ func handle_input(_event: InputEvent) -> void:
 	pass
 
 func update(_delta: float) -> void:
-	if Input.is_action_just_pressed("strike"):
+	if state_machine.state != self: return
+	if trans_to_strike_2: return
+	
+	time_passed += _delta
+	
+	if (Input.is_action_just_pressed("strike")
+	&& (anim_player.current_animation_length - time_passed <= 0.5)):
 		trans_to_strike_2 = true
 	pass
 
@@ -30,5 +36,6 @@ func physics_update(_delta: float) -> void:
 	pass
 
 func exit() -> void:
-	#player.root.position += offset
+	time_passed = 0
+	((player.weapon as Area3D).find_child("CollisionShape3D") as CollisionShape3D).disabled = true
 	pass
