@@ -13,6 +13,7 @@ var gravity: float = ProjectSettings.get_setting("physics/3d/default_gravity")
 @onready var dmg_reciever: Area3D = $damage_reciever
 @onready var state_machine: Zombie1StateMachine = $state_machine
 @onready var anim_player: AnimationPlayer = $zombie1/AnimationPlayer
+@onready var weapon: Area3D = $zombie1/Root/Skeleton3D/BoneAttachment3D/weapon
 
 var tex : Texture2D
 var mat : StandardMaterial3D
@@ -36,6 +37,27 @@ func process_moving():
 	var new_velocity = (next_pos - cur_pos).normalized() 
 	nav_agent.velocity = new_velocity * SPEED
 	look_at(trg_pos, Vector3.UP, true)
+	
+	if cur_pos.distance_to(trg_pos) <= 1.2:
+		state_machine.transition_to("attacking")
+	pass
+
+func upd_trg_pos(trg_pos: Vector3):
+	self.trg_pos = trg_pos
+	nav_agent.target_position = trg_pos
+
+func _on_navigation_agent_3d_target_reached() -> void:
+	#state_machine.transition_to("attacking")
+	pass
+
+func _on_navigation_agent_3d_velocity_computed(safe_velocity: Vector3) -> void:
+	velocity = velocity.move_toward(safe_velocity, 0.25)
+	if state_machine.state is Zombie1Moving:
+		move_and_slide()
+
+func play_anim(name: String):
+	if anim_player.current_animation != name:
+		anim_player.play(name)
 	pass
 
 func _on_damage_reciever_area_entered(area: Area3D) -> void:
@@ -55,22 +77,4 @@ func _on_damage_reciever_area_entered(area: Area3D) -> void:
 		smoke.reparent(get_parent_node_3d())
 		smoke.run_once_()
 		queue_free()
-	pass
-
-func upd_trg_pos(trg_pos: Vector3):
-	self.trg_pos = trg_pos
-	nav_agent.target_position = trg_pos
-
-func _on_navigation_agent_3d_target_reached() -> void:
-	state_machine.transition_to("attacking")
-	pass
-
-func _on_navigation_agent_3d_velocity_computed(safe_velocity: Vector3) -> void:
-	velocity = velocity.move_toward(safe_velocity, 0.25)
-	if state_machine.state is Zombie1Moving:
-		move_and_slide()
-
-func play_anim(name: String):
-	if anim_player.current_animation != name:
-		anim_player.play(name)
 	pass

@@ -4,7 +4,7 @@ var anim_player : AnimationPlayer
 var trans_to_strike_3 : bool = false
 
 func enter(_msg := {}) -> void:
-	((player.weapon as Area3D).find_child("CollisionShape3D") as CollisionShape3D).disabled = false
+	#((player.weapon as Area3D).find_child("CollisionShape3D") as CollisionShape3D).disabled = false
 	
 	anim_player = player.anim_player
 	anim_player.play("strike-2")
@@ -29,5 +29,5 @@ func physics_update(_delta: float) -> void:
 	pass
 
 func exit() -> void:
-	((player.weapon as Area3D).find_child("CollisionShape3D") as CollisionShape3D).disabled = true
+	#((player.weapon as Area3D).find_child("CollisionShape3D") as CollisionShape3D).disabled = true
 	pass

@@ -32,3 +32,6 @@ shape = SubResource("ConcavePolygonShape3D_5xeae")
 [node name="CollisionShape3D" type="CollisionShape3D" parent="interact_area"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1, 0.0280271)
 shape = SubResource("BoxShape3D_jenuc")
+
+[connection signal="body_entered" from="interact_area" to="." method="_on_interact_area_body_entered"]
+[connection signal="body_exited" from="interact_area" to="." method="_on_interact_area_body_exited"]

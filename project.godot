@@ -58,3 +58,4 @@ strike={
 3d_physics/layer_2="enemy_damage_reciever"
 3d_physics/layer_3="main_char_damage_reciever"
 3d_physics/layer_4="player_weapon"
+3d_physics/layer_5="enemy_weapon"
