@@ -1,0 +1,11 @@
+[gd_resource type="ShaderMaterial" load_steps=2 format=3 uid="uid://b6glipitiuhms"]
+
+[ext_resource type="Shader" path="res://scripts/shaders/transition.gdshader" id="1_lwptw"]
+
+[resource]
+shader = ExtResource("1_lwptw")
+shader_parameter/in_color = Color(0, 0, 0, 1)
+shader_parameter/out_color = Color(0, 0, 1, 1)
+shader_parameter/in_out = 0.0
+shader_parameter/position = 1.0
+shader_parameter/size = Vector2(16, 16)

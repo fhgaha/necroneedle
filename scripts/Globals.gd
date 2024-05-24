@@ -1,11 +1,16 @@
 extends Node
 
-
-# Called when the node enters the scene tree for the first time.
-func _ready() -> void:
-	pass # Replace with function body.
-
-
-# Called every frame. 'delta' is the elapsed time since the previous frame.
-func _process(delta: float) -> void:
+func transition_to(prev_room: Room, next_room: PackedScene):
+	#print(sender, next_room)
+	var scene = get_tree().current_scene
+	var trans = scene.get_node("transition") as TransitionScreen
+	await trans.fade_in()
+	
+	prev_room.queue_free()
+	var r: Room = next_room.instantiate()
+	$".".add_child(r)
+	var main_char = scene.get_node("MainChar")
+	main_char.global_position = r.spawn_pt.global_position
+	
+	await trans.fade_out()
 	pass

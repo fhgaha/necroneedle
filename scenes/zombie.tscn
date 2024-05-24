@@ -228,6 +228,21 @@ data = PackedVector3Array(-0.2, 0.2, 0.2, 0.2, 0.2, 0.2, -0.2, -0.2, 0.2, 0.2, 0
 [sub_resource type="BoxMesh" id="BoxMesh_6hsn6"]
 size = Vector3(0.4, 0.4, 0.4)
 
+[sub_resource type="Animation" id="Animation_bmpym"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Root/Skeleton3D/BoneAttachment3D/weapon/CollisionShape3D:disabled")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [true]
+}
+
 [sub_resource type="Animation" id="Animation_siluq"]
 resource_name = "attack"
 length = 3.83333
@@ -863,21 +878,6 @@ tracks/28/interp = 1
 tracks/28/loop_wrap = true
 tracks/28/keys = PackedFloat32Array(0, 1, -0.399091, 0.137168, -0.131378, 0.897024, 0.0333333, 1, -0.449878, 0.133048, -0.109924, 0.876256, 0.0666667, 1, -0.484348, 0.126066, -0.0872845, 0.861334, 0.1, 1, -0.507257, 0.120214, -0.0675414, 0.850692, 0.133333, 1, -0.521169, 0.115954, -0.053271, 0.84386, 0.166667, 1, -0.52866, 0.112123, -0.0433458, 0.840279, 0.2, 1, -0.532264, 0.108973, -0.0362951, 0.83875, 0.266667, 1, -0.538131, 0.10238, -0.0276607, 0.836163, 0.333333, 1, -0.549257, 0.0921823, -0.0213352, 0.830279, 0.4, 1, -0.563211, 0.076104, -0.0167656, 0.82263, 0.466667, 1, -0.573578, 0.0585136, -0.0143228, 0.816933, 0.6, 1, -0.583, -0.00939702, -0.0194967, 0.812184, 0.666667, 1, -0.588026, -0.0390305, -0.0228907, 0.807576, 0.733333, 1, -0.595458, -0.053291, -0.0206398, 0.801351, 0.933333, 1, -0.614002, -0.035672, 0.00919889, 0.788444, 1.03333, 1, -0.636561, 0.00847917, 0.0410371, 0.770087, 1.06667, 1, -0.646125, 0.0128976, 0.0798154, 0.758937, 1.1, 1, -0.611704, 0.00195462, 0.0904382, 0.785898, 1.16667, 1, -0.423846, -0.0504973, 0.0129991, 0.904232, 1.2, 1, -0.353651, -0.0495279, -0.0654655, 0.931768, 1.23333, 1, -0.279269, -0.047972, -0.143155, 0.948269, 1.26667, 1, -0.302482, -0.0394584, -0.137576, 0.942348, 1.3, 1, -0.342344, -0.00809101, -0.10479, 0.933678, 1.33333, 1, -0.375764, 0.0366525, -0.0584441, 0.924144, 1.36667, 1, -0.39973, 0.0699565, -0.0140646, 0.913851, 1.43333, 1, -0.437971, 0.0730014, 0.0302178, 0.89551, 1.5, 1, -0.409821, 0.123476, -0.105994, 0.897533, 1.53333, 1, -0.399091, 0.137168, -0.131378, 0.897024)
 
-[sub_resource type="Animation" id="Animation_bmpym"]
-length = 0.001
-tracks/0/type = "value"
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/path = NodePath("Root/Skeleton3D/BoneAttachment3D/weapon/CollisionShape3D:disabled")
-tracks/0/interp = 1
-tracks/0/loop_wrap = true
-tracks/0/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 1,
-"values": [true]
-}
-
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_llpic"]
 _data = {
 "RESET": SubResource("Animation_bmpym"),
@@ -1320,7 +1320,7 @@ mesh = SubResource("ArrayMesh_0xbpw")
 skin = SubResource("Skin_nb2mx")
 
 [node name="BoneAttachment3D" type="BoneAttachment3D" parent="zombie1/Root/Skeleton3D"]
-transform = Transform3D(-0.325324, -0.259038, -0.909431, -0.897866, -0.217095, 0.383023, -0.296651, 0.941153, -0.161956, -0.317173, 1.6056, 0.592512)
+transform = Transform3D(-0.325323, -0.259039, -0.909431, -0.897866, -0.217095, 0.383023, -0.296651, 0.941153, -0.161956, -0.317173, 1.6056, 0.592512)
 bone_name = "RightHand"
 bone_idx = 40
 

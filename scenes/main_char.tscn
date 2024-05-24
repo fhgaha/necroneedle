@@ -458,6 +458,21 @@ tracks/31/keys = {
 "values": []
 }
 
+[sub_resource type="Animation" id="Animation_tqb2e"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Root/Skeleton3D/BoneAttachment3D/weapon/CollisionShape3D:disabled")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [true]
+}
+
 [sub_resource type="Animation" id="Animation_aau20"]
 resource_name = "Running"
 length = 0.7
@@ -1379,21 +1394,6 @@ tracks/31/keys = {
 "values": [true, false, true, true]
 }
 
-[sub_resource type="Animation" id="Animation_tqb2e"]
-length = 0.001
-tracks/0/type = "value"
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/path = NodePath("Root/Skeleton3D/BoneAttachment3D/weapon/CollisionShape3D:disabled")
-tracks/0/interp = 1
-tracks/0/loop_wrap = true
-tracks/0/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 1,
-"values": [true]
-}
-
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_dus6x"]
 _data = {
 "Idle": SubResource("Animation_g3rtq"),
@@ -1855,7 +1855,7 @@ mesh = SubResource("ArrayMesh_bjuay")
 skin = SubResource("Skin_c1aun")
 
 [node name="BoneAttachment3D" type="BoneAttachment3D" parent="main_char/Root/Skeleton3D"]
-transform = Transform3D(0.543188, -0.731997, 0.411251, -0.139288, 0.404461, 0.903886, -0.827977, -0.548262, 0.11774, 0.00302953, 2.29991, -0.545089)
+transform = Transform3D(0.543187, -0.731997, 0.411251, -0.139287, 0.404462, 0.903886, -0.827978, -0.548261, 0.117741, 0.0030292, 2.29991, -0.545089)
 bone_name = "RightHand"
 bone_idx = 40
 
