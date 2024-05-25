@@ -5,7 +5,6 @@ var cur_health: int = 5
 
 const SPEED: float = 1.0
 const JUMP_VELOCITY: float = 4.5
-
 # Get the gravity from the project settings to be synced with RigidBody nodes.
 var gravity: float = ProjectSettings.get_setting("physics/3d/default_gravity")
 
@@ -21,11 +20,16 @@ var dmg_locked : bool = false
 var trg_pos : Vector3 = Vector3(-100, -100, -100)
 
 func _ready() -> void:
-	var mesh = $zombie1/Root/Skeleton3D/characterMedium as MeshInstance3D
-	mat = mesh.get_active_material(0) as StandardMaterial3D
+	var mesh_inst = $zombie1/Root/Skeleton3D/characterMedium as MeshInstance3D
+	mat = mesh_inst.mesh.surface_get_material(0)
+	mat = mat.duplicate()
+	mesh_inst.mesh.surface_set_material(0, mat)
 	tex = mat.albedo_texture
-	
 	state_machine.config()
+	
+	if G.debug:
+		health_max = 1
+		cur_health = 1
 	pass
 
 func _physics_process(delta: float) -> void:
@@ -63,6 +67,7 @@ func play_anim(name: String):
 func _on_damage_reciever_area_entered(area: Area3D) -> void:
 	if dmg_locked: return
 	
+	print(name)
 	dmg_locked = true
 	#print("_on_damage_reciever_area_entered")
 	cur_health -= 1

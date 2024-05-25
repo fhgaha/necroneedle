@@ -12,6 +12,7 @@ func _process(delta: float) -> void:
 	if ignore_input: return
 	
 	if Input.is_action_just_pressed("interact"):
+		if (get_parent() as Room).has_enemies_alive(): return
 		for b in interact_area.get_overlapping_bodies():
 			if b is MainChar:
 				#print("interact door")
