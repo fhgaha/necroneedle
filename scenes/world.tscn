@@ -1,4 +1,4 @@
-[gd_scene load_steps=17 format=3 uid="uid://mll5wpka6sln"]
+[gd_scene load_steps=18 format=3 uid="uid://mll5wpka6sln"]
 
 [ext_resource type="Script" path="res://scripts/World.gd" id="1_87u6f"]
 [ext_resource type="Script" path="res://addons/phantom_camera/scripts/phantom_camera_host/phantom_camera_host.gd" id="2_dxbf6"]
@@ -9,7 +9,7 @@
 [ext_resource type="Script" path="res://addons/phantom_camera/scripts/resources/camera_3d_resource.gd" id="7_t8lho"]
 [ext_resource type="Material" uid="uid://b6glipitiuhms" path="res://resources/transition_shader_mat.tres" id="8_y8ube"]
 [ext_resource type="Script" path="res://scripts/Transition.gd" id="9_t7arj"]
-[ext_resource type="PackedScene" uid="uid://y8nkreyjf5ul" path="res://scenes/zombie.tscn" id="10_b33yv"]
+[ext_resource type="PackedScene" uid="uid://y8nkreyjf5ul" path="res://scenes/zombie.tscn" id="11_3t8af"]
 [ext_resource type="AudioStream" uid="uid://l0et80tqckg0" path="res://audio/main_song.wav" id="11_rrvj5"]
 
 [sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_4k5ni"]
@@ -37,6 +37,9 @@ cull_mask = 1048575
 h_offset = 0.0
 v_offset = 0.0
 fov = 21.135
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_q3000"]
+size = Vector3(256, 1, 256)
 
 [node name="world" type="Node3D"]
 script = ExtResource("1_87u6f")
@@ -88,6 +91,7 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
+mouse_filter = 2
 script = ExtResource("9_t7arj")
 
 [node name="ColorRect" type="ColorRect" parent="transition"]
@@ -98,6 +102,15 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
+mouse_filter = 2
 
-[node name="zombie" parent="." instance=ExtResource("10_b33yv")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.84562, -9.53674e-07, -1.40661)
+[node name="zombie" parent="." instance=ExtResource("11_3t8af")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -2)
+
+[node name="death_area" type="Area3D" parent="."]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="death_area"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -23.8674, 0)
+shape = SubResource("BoxShape3D_q3000")
+
+[connection signal="body_entered" from="death_area" to="MainChar" method="_on_death_area_body_entered"]

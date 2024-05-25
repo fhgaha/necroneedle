@@ -1,7 +1,7 @@
 class_name Zombie1Moving extends Zombie1State
 
 func enter(_msg := {}) -> void:
-	print("z entered moving")
+	#print("z entered moving")
 	player.play_anim("walk")
 	pass
 

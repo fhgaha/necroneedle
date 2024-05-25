@@ -13,3 +13,6 @@ func _ready() -> void:
 func _physics_process(delta: float) -> void:
 	get_tree().call_group("enemies", "upd_trg_pos", main_char.global_position)
 
+func reset_player_pos(player: MainChar):
+	var room = $rooms.get_child(0) as Room
+	player.global_position = room.spawn_pt.global_position

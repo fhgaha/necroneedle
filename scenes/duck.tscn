@@ -222,6 +222,60 @@ _surfaces = [{
 }]
 blend_shape_mode = 0
 
+[sub_resource type="Animation" id="Animation_p220y"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:rotation")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector3(0, 0, 0)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath(".:position")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector3(0, 0.171993, 0)]
+}
+
+[sub_resource type="Animation" id="Animation_u75us"]
+resource_name = "death"
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:rotation")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.4),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Vector3(0, 0, 0), Vector3(0, 0, 1.53387)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath(".:position")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 0.4),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Vector3(0, 0.171993, 0), Vector3(0, 0.171993, 0)]
+}
+
 [sub_resource type="Animation" id="Animation_m7qnn"]
 resource_name = "walkcycle_1"
 length = 0.533333
@@ -310,60 +364,6 @@ tracks/11/path = NodePath("Sketchfab_model/root/GLTF_SceneRootNode/Armature_11/G
 tracks/11/interp = 1
 tracks/11/loop_wrap = true
 tracks/11/keys = PackedFloat32Array(0, 1, 0.0401637, 0.0439981, 0.00828051, 0.99819, 0.0333333, 1, 0.0372853, 0.0409515, 0.00868415, 0.998428, 0.0666667, 1, 0.0299205, 0.0329312, 0.00904971, 0.998969, 0.1, 1, 0.0201119, 0.0216864, 0.008205, 0.999529, 0.133333, 1, 0.00980586, 0.00903217, 0.00581165, 0.999894, 0.166667, 1, 0.000555138, -0.00339074, 0.00269356, 0.99999, 0.2, 1, -0.00663236, -0.0141398, 2.95162e-05, 0.999878, 0.233333, 1, -0.011221, -0.021722, -0.00158436, 0.9997, 0.3, 1, -0.0112669, -0.0217392, -0.00140733, 0.999699, 0.333333, 1, -0.00672513, -0.0141416, 0.000398327, 0.999877, 0.366667, 1, 0.000520562, -0.00327001, 0.00284037, 0.99999, 0.4, 1, 0.00992169, 0.00932301, 0.00533087, 0.999893, 0.433333, 1, 0.0203321, 0.0220174, 0.00723574, 0.999525, 0.466667, 1, 0.0301074, 0.033142, 0.0081785, 0.998964, 0.5, 1, 0.0373545, 0.0410141, 0.00834563, 0.998425, 0.533333, 1, 0.0401637, 0.0439981, 0.00828051, 0.99819)
-
-[sub_resource type="Animation" id="Animation_u75us"]
-resource_name = "death"
-tracks/0/type = "value"
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/path = NodePath(".:rotation")
-tracks/0/interp = 1
-tracks/0/loop_wrap = true
-tracks/0/keys = {
-"times": PackedFloat32Array(0, 0.4),
-"transitions": PackedFloat32Array(1, 1),
-"update": 0,
-"values": [Vector3(0, 0, 0), Vector3(0, 0, 1.53387)]
-}
-tracks/1/type = "value"
-tracks/1/imported = false
-tracks/1/enabled = true
-tracks/1/path = NodePath(".:position")
-tracks/1/interp = 1
-tracks/1/loop_wrap = true
-tracks/1/keys = {
-"times": PackedFloat32Array(0, 0.4),
-"transitions": PackedFloat32Array(1, 1),
-"update": 0,
-"values": [Vector3(0, 0.171993, 0), Vector3(0, 0.171993, 0)]
-}
-
-[sub_resource type="Animation" id="Animation_p220y"]
-length = 0.001
-tracks/0/type = "value"
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/path = NodePath(".:rotation")
-tracks/0/interp = 1
-tracks/0/loop_wrap = true
-tracks/0/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 0,
-"values": [Vector3(0, 0, 0)]
-}
-tracks/1/type = "value"
-tracks/1/imported = false
-tracks/1/enabled = true
-tracks/1/path = NodePath(".:position")
-tracks/1/interp = 1
-tracks/1/loop_wrap = true
-tracks/1/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 0,
-"values": [Vector3(0, 0.171993, 0)]
-}
 
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_lk7p6"]
 _data = {

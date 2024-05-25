@@ -1,8 +1,7 @@
 class_name Zombie1Attacking extends Zombie1State
 
 func enter(_msg := {}) -> void:
-	print("z entered attacking")
-	
+	#print("z entered attacking")
 	var anim_player: AnimationPlayer = player.anim_player
 	player.play_anim("attack")
 	await anim_player.animation_finished

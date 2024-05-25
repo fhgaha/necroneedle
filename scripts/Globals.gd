@@ -1,6 +1,6 @@
 extends Node
 
-var debug: bool = false
+var debug: bool = true
 
 func transition_to(prev_room: Room, next_room: PackedScene):
 	#print(sender, next_room)
