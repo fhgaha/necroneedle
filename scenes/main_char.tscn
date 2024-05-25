@@ -1,4 +1,4 @@
-[gd_scene load_steps=24 format=3 uid="uid://b8028tt8jjxav"]
+[gd_scene load_steps=25 format=3 uid="uid://b8028tt8jjxav"]
 
 [ext_resource type="Script" path="res://scripts/MainChar.gd" id="1_y2clw"]
 [ext_resource type="Script" path="res://scripts/states/main_char/state_machine.gd" id="3_0oug8"]
@@ -8,6 +8,7 @@
 [ext_resource type="Script" path="res://scripts/states/main_char/moving.gd" id="5_xnt44"]
 [ext_resource type="Script" path="res://scripts/states/main_char/strike_2.gd" id="6_swi3q"]
 [ext_resource type="Script" path="res://scripts/states/main_char/strike_3.gd" id="7_7u1k7"]
+[ext_resource type="AudioStream" uid="uid://cbxb0jvrmw0tu" path="res://audio/slap.mp3" id="9_pxgga"]
 
 [sub_resource type="CapsuleShape3D" id="CapsuleShape3D_tc2x3"]
 
@@ -1887,5 +1888,8 @@ collision_mask = 16
 [node name="CollisionShape3D" type="CollisionShape3D" parent="damage_reciever"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.00335, 0)
 shape = SubResource("CapsuleShape3D_covyh")
+
+[node name="sound" type="AudioStreamPlayer3D" parent="."]
+stream = ExtResource("9_pxgga")
 
 [connection signal="area_entered" from="damage_reciever" to="." method="_on_damage_reciever_area_entered"]

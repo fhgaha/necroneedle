@@ -5,6 +5,7 @@ class_name MainChar extends CharacterBody3D
 @onready var anim_player: AnimationPlayer = $main_char/AnimationPlayer
 @onready var root: Node3D = $main_char/Root
 @onready var weapon: Area3D = $main_char/Root/Skeleton3D/BoneAttachment3D/weapon
+@onready var sound: AudioStreamPlayer3D = $sound
 var dmg_locked : bool = false
 var health_max : int = 5
 var cur_health: int = 5
@@ -35,6 +36,7 @@ func _on_damage_reciever_area_entered(area: Area3D) -> void:
 	
 	dmg_locked = true
 	#print("_on_damage_reciever_area_entered")
+	sound.play()
 	cur_health -= 1
 	print(cur_health)
 	mat.albedo_texture = null

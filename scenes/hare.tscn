@@ -1,8 +1,10 @@
-[gd_scene load_steps=10 format=3 uid="uid://bque30au6ajtj"]
+[gd_scene load_steps=12 format=3 uid="uid://bque30au6ajtj"]
 
 [ext_resource type="Script" path="res://scripts/Hare.gd" id="1_b7l58"]
 [ext_resource type="ArrayMesh" uid="uid://bqpgkuo62hypd" path="res://models/hare/hare.obj" id="1_i5rcc"]
 [ext_resource type="PackedScene" uid="uid://bdcyt3cenl0xo" path="res://scenes/duck.tscn" id="3_82bik"]
+[ext_resource type="PackedScene" uid="uid://dsnk68xapoc4n" path="res://scenes/smoke_particle.tscn" id="4_40hgm"]
+[ext_resource type="AudioStream" uid="uid://cbxb0jvrmw0tu" path="res://audio/slap.mp3" id="5_ejnw1"]
 
 [sub_resource type="Animation" id="Animation_c6sro"]
 length = 0.001
@@ -142,5 +144,10 @@ shape = SubResource("BoxShape3D_u44wa")
 
 [node name="duck" parent="." instance=ExtResource("3_82bik")]
 visible = false
+
+[node name="SmokeParticle" parent="." instance=ExtResource("4_40hgm")]
+
+[node name="sound" type="AudioStreamPlayer3D" parent="."]
+stream = ExtResource("5_ejnw1")
 
 [connection signal="area_entered" from="damage_reciever" to="." method="_on_damage_reciever_area_entered"]

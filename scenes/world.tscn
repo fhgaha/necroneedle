@@ -1,14 +1,16 @@
-[gd_scene load_steps=15 format=3 uid="uid://mll5wpka6sln"]
+[gd_scene load_steps=17 format=3 uid="uid://mll5wpka6sln"]
 
 [ext_resource type="Script" path="res://scripts/World.gd" id="1_87u6f"]
 [ext_resource type="Script" path="res://addons/phantom_camera/scripts/phantom_camera_host/phantom_camera_host.gd" id="2_dxbf6"]
 [ext_resource type="PackedScene" uid="uid://b8028tt8jjxav" path="res://scenes/main_char.tscn" id="2_lmc37"]
 [ext_resource type="Script" path="res://addons/phantom_camera/scripts/phantom_camera/phantom_camera_3d.gd" id="5_sr24w"]
-[ext_resource type="PackedScene" uid="uid://clv1jtun3jbj2" path="res://scenes/rooms/room_2d_1.tscn" id="6_45c0w"]
 [ext_resource type="Script" path="res://addons/phantom_camera/scripts/resources/tween_resource.gd" id="6_awc3a"]
+[ext_resource type="PackedScene" uid="uid://c5t8sq4ns2ct5" path="res://scenes/rooms/room_0c_0.tscn" id="6_kie3o"]
 [ext_resource type="Script" path="res://addons/phantom_camera/scripts/resources/camera_3d_resource.gd" id="7_t8lho"]
 [ext_resource type="Material" uid="uid://b6glipitiuhms" path="res://resources/transition_shader_mat.tres" id="8_y8ube"]
 [ext_resource type="Script" path="res://scripts/Transition.gd" id="9_t7arj"]
+[ext_resource type="PackedScene" uid="uid://y8nkreyjf5ul" path="res://scenes/zombie.tscn" id="10_b33yv"]
+[ext_resource type="AudioStream" uid="uid://l0et80tqckg0" path="res://audio/main_song.wav" id="11_rrvj5"]
 
 [sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_4k5ni"]
 sky_horizon_color = Color(0.64625, 0.65575, 0.67075, 1)
@@ -46,16 +48,21 @@ shadow_enabled = true
 [node name="WorldEnvironment" type="WorldEnvironment" parent="."]
 environment = SubResource("Environment_00ovm")
 
+[node name="main_song" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("11_rrvj5")
+volume_db = -6.898
+pitch_scale = 1.27
+
 [node name="cam" type="Camera3D" parent="."]
 unique_name_in_owner = true
-transform = Transform3D(0.707107, -0.408248, 0.57735, 1.49012e-08, 0.816497, 0.57735, -0.707107, -0.408248, 0.57735, -0.718545, 10.5773, 27.8189)
+transform = Transform3D(0.707107, -0.408248, 0.57735, 1.49012e-08, 0.816497, 0.57735, -0.707107, -0.408248, 0.57735, 11.2815, 10.5773, 12.8189)
 fov = 21.135
 
 [node name="PhantomCameraHost" type="Node" parent="cam"]
 script = ExtResource("2_dxbf6")
 
 [node name="PhantomCamera3D" type="Node3D" parent="." node_paths=PackedStringArray("follow_target", "look_at_target")]
-transform = Transform3D(0.707107, -0.408248, 0.57735, 1.49012e-08, 0.816497, 0.57735, -0.707107, -0.408248, 0.57735, -0.718545, 10.5773, 27.8189)
+transform = Transform3D(0.707107, -0.408248, 0.57735, 1.49012e-08, 0.816497, 0.57735, -0.707107, -0.408248, 0.57735, 11.2815, 10.5773, 12.8189)
 script = ExtResource("5_sr24w")
 follow_mode = 5
 follow_target = NodePath("../MainChar")
@@ -69,10 +76,10 @@ dead_zone_height = 1.0
 
 [node name="rooms" type="Node3D" parent="."]
 
-[node name="room0" parent="rooms" instance=ExtResource("6_45c0w")]
+[node name="room0" parent="rooms" instance=ExtResource("6_kie3o")]
 
 [node name="MainChar" parent="." instance=ExtResource("2_lmc37")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -11.2959, 0, 17.2415)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.704105, 0, 2.24154)
 
 [node name="transition" type="Control" parent="."]
 layout_mode = 3
@@ -91,3 +98,6 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
+
+[node name="zombie" parent="." instance=ExtResource("10_b33yv")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.84562, -9.53674e-07, -1.40661)

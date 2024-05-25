@@ -3,6 +3,8 @@ class_name Hare extends Node3D
 @onready var anim_player: AnimationPlayer = $AnimationPlayer
 @onready var coll: CollisionShape3D = $damage_reciever/CollisionShape3D
 @onready var duck: Duck = $duck
+@onready var smoke: SmokeParticle = $SmokeParticle
+@onready var sound: AudioStreamPlayer3D = $sound
 
 var move: bool = false
 var timer: float = 0
@@ -28,7 +30,9 @@ func enable_coll():
 	coll.disabled = false
 
 func _on_damage_reciever_area_entered(area: Area3D) -> void:
+	sound.play()
 	anim_player.play("death")
+	smoke.run_once_()
 	await anim_player.animation_finished
 	
 	duck.show()

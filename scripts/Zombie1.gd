@@ -13,6 +13,7 @@ var gravity: float = ProjectSettings.get_setting("physics/3d/default_gravity")
 @onready var state_machine: Zombie1StateMachine = $state_machine
 @onready var anim_player: AnimationPlayer = $zombie1/AnimationPlayer
 @onready var weapon: Area3D = $zombie1/Root/Skeleton3D/BoneAttachment3D/weapon
+@onready var sound: AudioStreamPlayer3D = $AudioStreamPlayer3D
 
 var tex : Texture2D
 var mat : StandardMaterial3D
@@ -67,14 +68,17 @@ func play_anim(name: String):
 func _on_damage_reciever_area_entered(area: Area3D) -> void:
 	if dmg_locked: return
 	
-	print(name)
+	#print(name)
 	dmg_locked = true
 	#print("_on_damage_reciever_area_entered")
 	cur_health -= 1
-	print(cur_health)
+	#print(cur_health)
 	mat.albedo_texture = null
 	await get_tree().create_timer(0.2).timeout
 	mat.albedo_texture = tex
+	
+	sound.play()
+	await sound.finished
 	dmg_locked = false
 	
 	if cur_health <= 0:

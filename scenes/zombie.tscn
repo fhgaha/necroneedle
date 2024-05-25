@@ -1,4 +1,4 @@
-[gd_scene load_steps=21 format=3 uid="uid://y8nkreyjf5ul"]
+[gd_scene load_steps=22 format=3 uid="uid://y8nkreyjf5ul"]
 
 [ext_resource type="Script" path="res://scripts/Zombie1.gd" id="1_o3co1"]
 [ext_resource type="Material" uid="uid://dd27rdwe2nwki" path="res://resources/zombie!_mat.tres" id="2_1lxaf"]
@@ -7,6 +7,7 @@
 [ext_resource type="Script" path="res://scripts/states/zombie1/Zombie1Idle.gd" id="5_3u7ld"]
 [ext_resource type="Script" path="res://scripts/states/zombie1/Zombie1Moving.gd" id="6_i0tqy"]
 [ext_resource type="Script" path="res://scripts/states/zombie1/Zombie1Attacking.gd" id="7_fmrn5"]
+[ext_resource type="AudioStream" uid="uid://imxrfoa7l5ku" path="res://audio/zombie_hit.wav" id="8_240dt"]
 
 [sub_resource type="CapsuleShape3D" id="CapsuleShape3D_tc2x3"]
 
@@ -1367,6 +1368,9 @@ script = ExtResource("6_i0tqy")
 
 [node name="attacking" type="Node" parent="state_machine"]
 script = ExtResource("7_fmrn5")
+
+[node name="AudioStreamPlayer3D" type="AudioStreamPlayer3D" parent="."]
+stream = ExtResource("8_240dt")
 
 [connection signal="area_entered" from="damage_reciever" to="." method="_on_damage_reciever_area_entered"]
 [connection signal="target_reached" from="NavigationAgent3D" to="." method="_on_navigation_agent_3d_target_reached"]

@@ -2,7 +2,7 @@
 
 [ext_resource type="Script" path="res://scripts/Room.gd" id="1_xha48"]
 [ext_resource type="PackedScene" uid="uid://d0x7fekjnnueu" path="res://scenes/rooms/door.tscn" id="2_4p7r6"]
-[ext_resource type="PackedScene" uid="uid://b2gwgtc23nt6m" path="res://scenes/rooms/room_0c_1.tscn" id="3_ku7le"]
+[ext_resource type="PackedScene" uid="uid://bdoit1x3s4a5t" path="res://scenes/rooms/room_3n_0.tscn" id="3_u8nt1"]
 [ext_resource type="PackedScene" uid="uid://bdcyt3cenl0xo" path="res://scenes/duck.tscn" id="4_ocxhe"]
 
 [sub_resource type="NavigationMesh" id="NavigationMesh_b3ue1"]
@@ -123,7 +123,7 @@ skeleton = NodePath("../..")
 shape = SubResource("ConcavePolygonShape3D_t2rdv")
 
 [node name="door" parent="." instance=ExtResource("2_4p7r6")]
-next_room = ExtResource("3_ku7le")
+next_room = ExtResource("3_u8nt1")
 
 [node name="spawn_pt" type="Marker3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -29, 0, 31)
@@ -131,4 +131,8 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -29, 0, 31)
 [node name="duck" parent="." instance=ExtResource("4_ocxhe")]
 transform = Transform3D(-0.131305, 0, 0.991342, 0, 1, 0, -0.991342, 0, -0.131305, -8, 0, 20)
 
+[node name="CollisionShape3D" parent="duck/damage_reciever" index="0"]
+disabled = false
+
 [editable path="door"]
+[editable path="duck"]

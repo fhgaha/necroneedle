@@ -2,7 +2,7 @@
 
 [ext_resource type="Script" path="res://scripts/Room.gd" id="1_x6lre"]
 [ext_resource type="PackedScene" uid="uid://d0x7fekjnnueu" path="res://scenes/rooms/door.tscn" id="2_thp21"]
-[ext_resource type="PackedScene" uid="uid://b2gwgtc23nt6m" path="res://scenes/rooms/room_0c_1.tscn" id="3_kjtc8"]
+[ext_resource type="PackedScene" uid="uid://c1dinpgycpniq" path="res://scenes/rooms/room_3n_1.tscn" id="3_qo48f"]
 
 [sub_resource type="NavigationMesh" id="NavigationMesh_b3ue1"]
 vertices = PackedVector3Array(-4.75, 0.5, 14.5, -4.5, 0.5, 16.75, 4.5, 0.5, 16.75, 4.5, 0.5, -4.5, -14.5, 0.5, -4.5, -14.5, 0.5, 14.5, -4.75, 0.5, 14.5, 4.5, 0.5, -4.5, 4.5, 0.5, 16.75, -4.5, 0.5, 16.75, -4.5, 0.5, 24.5, 4.5, 0.5, 24.5)
@@ -94,7 +94,7 @@ skeleton = NodePath("../..")
 shape = SubResource("ConcavePolygonShape3D_5og2r")
 
 [node name="door" parent="." instance=ExtResource("2_thp21")]
-next_room = ExtResource("3_kjtc8")
+next_room = ExtResource("3_qo48f")
 
 [node name="spawn_pt" type="Marker3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.118751, 0, 23.0379)

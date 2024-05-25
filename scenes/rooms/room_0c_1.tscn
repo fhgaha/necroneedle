@@ -1,23 +1,23 @@
 [gd_scene load_steps=8 format=3 uid="uid://b2gwgtc23nt6m"]
 
-[ext_resource type="Script" path="res://scripts/Room.gd" id="1_x55au"]
-[ext_resource type="Material" uid="uid://cs41vfkeq752x" path="res://scenes/rooms/floor_mat.tres" id="2_28ste"]
-[ext_resource type="PackedScene" uid="uid://d0x7fekjnnueu" path="res://scenes/rooms/door.tscn" id="3_eksy3"]
-[ext_resource type="PackedScene" uid="uid://bl2qd0aw45bqh" path="res://scenes/rooms/room_0c_2.tscn" id="4_77ime"]
+[ext_resource type="Script" path="res://scripts/Room.gd" id="1_3wfu0"]
+[ext_resource type="Material" uid="uid://cs41vfkeq752x" path="res://scenes/rooms/floor_mat.tres" id="2_jfnnh"]
+[ext_resource type="PackedScene" uid="uid://d0x7fekjnnueu" path="res://scenes/rooms/door.tscn" id="3_6gyq8"]
+[ext_resource type="PackedScene" uid="uid://bl2qd0aw45bqh" path="res://scenes/rooms/room_0c_2.tscn" id="4_u6w1t"]
 
 [sub_resource type="NavigationMesh" id="NavigationMesh_b3ue1"]
 vertices = PackedVector3Array(-4.5, 0.5, -14.5696, -4.5, 0.5, 4.43038, 4.5, 0.5, 4.43038, 4.5, 0.5, -14.5696)
 polygons = [PackedInt32Array(3, 2, 0), PackedInt32Array(0, 2, 1)]
 
 [sub_resource type="BoxMesh" id="BoxMesh_p2j2n"]
-material = ExtResource("2_28ste")
+material = ExtResource("2_jfnnh")
 size = Vector3(20, 1, 10)
 
 [sub_resource type="ConcavePolygonShape3D" id="ConcavePolygonShape3D_qjlr4"]
 data = PackedVector3Array(-10, 0.5, 5, 10, 0.5, 5, -10, -0.5, 5, 10, 0.5, 5, 10, -0.5, 5, -10, -0.5, 5, 10, 0.5, -5, -10, 0.5, -5, 10, -0.5, -5, -10, 0.5, -5, -10, -0.5, -5, 10, -0.5, -5, 10, 0.5, 5, 10, 0.5, -5, 10, -0.5, 5, 10, 0.5, -5, 10, -0.5, -5, 10, -0.5, 5, -10, 0.5, -5, -10, 0.5, 5, -10, -0.5, -5, -10, 0.5, 5, -10, -0.5, 5, -10, -0.5, -5, 10, 0.5, 5, -10, 0.5, 5, 10, 0.5, -5, -10, 0.5, 5, -10, 0.5, -5, 10, 0.5, -5, -10, -0.5, 5, 10, -0.5, 5, -10, -0.5, -5, 10, -0.5, 5, 10, -0.5, -5, -10, -0.5, -5)
 
 [node name="room1" type="Node3D"]
-script = ExtResource("1_x55au")
+script = ExtResource("1_3wfu0")
 
 [node name="floor" type="Node3D" parent="."]
 
@@ -35,9 +35,9 @@ skeleton = NodePath("../..")
 [node name="CollisionShape3D" type="CollisionShape3D" parent="floor/NavigationRegion3D/MeshInstance3D/StaticBody3D"]
 shape = SubResource("ConcavePolygonShape3D_qjlr4")
 
-[node name="door" parent="." instance=ExtResource("3_eksy3")]
+[node name="door" parent="." instance=ExtResource("3_6gyq8")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -15)
-next_room = ExtResource("4_77ime")
+next_room = ExtResource("4_u6w1t")
 
 [node name="spawn_pt" type="Marker3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.0216877, 0, 3.13371)

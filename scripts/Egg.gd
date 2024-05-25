@@ -20,4 +20,5 @@ func move_forward():
 
 func _on_damage_reciever_area_entered(area: Area3D) -> void:
 	#play final animation
+	
 	pass
