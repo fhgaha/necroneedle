@@ -1,4 +1,10 @@
-models keeny pack character 3 https://kenney-assets.itch.io/animated-characters-3
+models 
+keeny pack character 3 https://kenney-assets.itch.io/animated-characters-3
 hare https://www.turbosquid.com/3d-models/free-low-poly-hare-model-291002
+duck https://sketchfab.com/3d-models/lowpoly-duck-animated-0242fe38361c4bdabadcfddb42eb3325#download
+egg https://sketchfab.com/3d-models/lowpoly-egg-120e7f2d5adc45199d6b1faf7da797da#download
+
+addons:
+phantom camera
 
 в сундуке — заяц, в зайце — утка, в утке — яйцо, в яйце — игла, — смерть Кощея

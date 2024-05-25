@@ -1,0 +1,11 @@
+Model Information:
+* title:	lowpoly egg
+* source:	https://sketchfab.com/3d-models/lowpoly-egg-120e7f2d5adc45199d6b1faf7da797da
+* author:	Maf'j Alvarez (https://sketchfab.com/blujay)
+
+Model License:
+* license type:	CC-BY-NC-4.0 (http://creativecommons.org/licenses/by-nc/4.0/)
+* requirements:	Author must be credited. No commercial use.
+
+If you use this 3D model in your project be sure to copy paste this credit wherever you share it:
+This work is based on "lowpoly egg" (https://sketchfab.com/3d-models/lowpoly-egg-120e7f2d5adc45199d6b1faf7da797da) by Maf'j Alvarez (https://sketchfab.com/blujay) licensed under CC-BY-NC-4.0 (http://creativecommons.org/licenses/by-nc/4.0/)
