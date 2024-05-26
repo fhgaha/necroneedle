@@ -14,7 +14,7 @@ func _on_player_detector_body_exited(body: Node3D) -> void:
 
 func _process(delta: float) -> void:
 	if player && Input.is_action_just_pressed("interact"):
-		dmg_dealer_shape.disabled = false
+		dmg_dealer_shape.disabled = true
 		await player.take_in_hand(dmg_dealer)
 		queue_free()
 		pass

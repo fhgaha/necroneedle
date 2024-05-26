@@ -70,7 +70,8 @@ func death():
 	death_popup.show()
 
 func _on_death_area_body_entered(body: Node3D) -> void:
-	death()
+	if body is MainChar:
+		death()
 	pass
 
 var push_force = 1.0
@@ -81,13 +82,16 @@ func push():
 			c.get_collider().apply_central_impulse(-c.get_normal() * push_force)
 
 func take_in_hand(wpn: WeaponInHand):
-	wpn_scaler.get_child(0).queue_free()
+	for c in wpn_scaler.get_children():
+		c.queue_free()
+	
 	await get_tree().process_frame
 	wpn.name = "default_weapon"
 	wpn.reparent(wpn_scaler, false)
 	wpn.position = Vector3.ZERO
 	wpn.rotation = Vector3.ZERO
 	wpn.broken.connect(on_weapon_break)
+	#(wpn.find_child("CollisionShape3D") as CollisionShape3D).disabled = true
 	pass
 
 func on_weapon_break(sender: WeaponInHand):

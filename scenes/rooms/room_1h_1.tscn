@@ -1,10 +1,12 @@
-[gd_scene load_steps=13 format=3 uid="uid://m2f2ronhrb6"]
+[gd_scene load_steps=15 format=3 uid="uid://m2f2ronhrb6"]
 
 [ext_resource type="Script" path="res://scripts/Room.gd" id="1_1xvrb"]
 [ext_resource type="PackedScene" uid="uid://d0x7fekjnnueu" path="res://scenes/rooms/door.tscn" id="2_bu7q1"]
 [ext_resource type="PackedScene" uid="uid://rupywp6abjf2" path="res://scenes/rooms/room_2d_0.tscn" id="3_o6xe2"]
 [ext_resource type="PackedScene" uid="uid://bque30au6ajtj" path="res://scenes/hare.tscn" id="4_5mgha"]
 [ext_resource type="PackedScene" uid="uid://y8nkreyjf5ul" path="res://scenes/zombie.tscn" id="5_oxpns"]
+[ext_resource type="PackedScene" uid="uid://defqoglh6711t" path="res://scenes/weapons/wpn_bench.tscn" id="6_c1dhh"]
+[ext_resource type="PackedScene" uid="uid://bff2cs2mqb2cd" path="res://scenes/weapons/wpn_laptop.tscn" id="7_quwa5"]
 
 [sub_resource type="NavigationMesh" id="NavigationMesh_b3ue1"]
 vertices = PackedVector3Array(3.25, 0.5, 4.5, 3.25, 0.5, -4.5, -4.5, 0.5, -4.5, -4.5, 0.5, 4.5, 3.25, 0.5, -4.5, 3.25, 0.5, 4.5, 5.25, 0.5, 4.5, 5.25, 0.5, 4.5, 5.5, 0.5, 5, 14.5, 0.5, 5, 14.5, 0.5, -4.5, 3.25, 0.5, -4.5, 15, 0.5, 14.5, 15.25, 0.5, 5.5, 14.5, 0.5, 5, 5.5, 0.5, 5, 5.5, 0.5, 14.5, 15.5, 0.5, 14.75, 15.5, 0.5, 16.75, 24.5, 0.5, 16.75, 15.25, 0.5, 5.5, 15, 0.5, 14.5, 15.5, 0.5, 14.75, 24.5, 0.5, 16.75, 24.5, 0.5, 5.5, 15.5, 0.5, 23.25, 24.5, 0.5, 23.25, 24.5, 0.5, 16.75, 15.5, 0.5, 16.75, 15.25, 0.5, 25.5, 13.25, 0.5, 25.5, 13.25, 0.5, 34.5, 24.5, 0.5, 23.25, 15.5, 0.5, 23.25, 15.25, 0.5, 25.5, 15.25, 0.5, 25.5, 13.25, 0.5, 34.5, 24.5, 0.5, 34.5, 24.5, 0.5, 23.25, 13.25, 0.5, 34.5, 13.25, 0.5, 25.5, 5.5, 0.5, 25.5, 5.5, 0.5, 34.5)
@@ -125,10 +127,27 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -3, 0, -1)
 transform = Transform3D(0.054532, 0, 0.998512, 0, 1, 0, -0.998512, 0, 0.054532, 22, 0, 9.55916)
 
 [node name="Node3D" parent="Hare" index="1"]
-transform = Transform3D(-1, -6.36472e-08, 3.60129e-09, 6.22011e-09, -0.0411939, 0.999151, -6.34448e-08, 0.999151, 0.0411939, 0, 0.252141, 0)
+transform = Transform3D(-1, -6.36471e-08, 3.60129e-09, 6.22011e-09, -0.0411939, 0.999151, -6.34447e-08, 0.999151, 0.0411939, 0, 0.252141, 0)
 
 [node name="zombie" parent="." instance=ExtResource("5_oxpns")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 20.0226, 2.38419e-07, 12.3745)
 
+[node name="bench" parent="." instance=ExtResource("6_c1dhh")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 5, 1, -1)
+
+[node name="bench2" parent="." instance=ExtResource("6_c1dhh")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 10, 1, 1)
+
+[node name="laptop" parent="." instance=ExtResource("7_quwa5")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 19, 1, 19)
+
+[node name="zombie2" parent="." instance=ExtResource("5_oxpns")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 11, 0, 4)
+
+[node name="zombie3" parent="." instance=ExtResource("5_oxpns")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 15, 0, 30)
+
 [editable path="door"]
 [editable path="Hare"]
+[editable path="Hare/duck"]
+[editable path="Hare/duck/egg"]

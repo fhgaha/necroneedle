@@ -1,9 +1,10 @@
-[gd_scene load_steps=8 format=3 uid="uid://b2gwgtc23nt6m"]
+[gd_scene load_steps=9 format=3 uid="uid://b2gwgtc23nt6m"]
 
 [ext_resource type="Script" path="res://scripts/Room.gd" id="1_3wfu0"]
 [ext_resource type="Material" uid="uid://cs41vfkeq752x" path="res://scenes/rooms/floor_mat.tres" id="2_jfnnh"]
 [ext_resource type="PackedScene" uid="uid://d0x7fekjnnueu" path="res://scenes/rooms/door.tscn" id="3_6gyq8"]
 [ext_resource type="PackedScene" uid="uid://bl2qd0aw45bqh" path="res://scenes/rooms/room_0c_2.tscn" id="4_u6w1t"]
+[ext_resource type="PackedScene" uid="uid://y8nkreyjf5ul" path="res://scenes/zombie.tscn" id="5_5bpnw"]
 
 [sub_resource type="NavigationMesh" id="NavigationMesh_b3ue1"]
 vertices = PackedVector3Array(-4.5, 0.5, -14.5696, -4.5, 0.5, 4.43038, 4.5, 0.5, 4.43038, 4.5, 0.5, -14.5696)
@@ -41,5 +42,8 @@ next_room = ExtResource("4_u6w1t")
 
 [node name="spawn_pt" type="Marker3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.0216877, 0, 3.13371)
+
+[node name="zombie" parent="." instance=ExtResource("5_5bpnw")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -9)
 
 [editable path="door"]

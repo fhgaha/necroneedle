@@ -82,3 +82,8 @@ shape = SubResource("ConcavePolygonShape3D_juf0j")
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.140601, 0, 32.6972)
 
 [node name="egg" parent="." instance=ExtResource("2_fs16a")]
+
+[node name="win_text" parent="egg/needle_breaking" index="2"]
+visible = false
+
+[editable path="egg"]

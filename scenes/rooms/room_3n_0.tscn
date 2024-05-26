@@ -1,8 +1,12 @@
-[gd_scene load_steps=12 format=3 uid="uid://bdoit1x3s4a5t"]
+[gd_scene load_steps=16 format=3 uid="uid://bdoit1x3s4a5t"]
 
 [ext_resource type="Script" path="res://scripts/Room.gd" id="1_x6lre"]
 [ext_resource type="PackedScene" uid="uid://d0x7fekjnnueu" path="res://scenes/rooms/door.tscn" id="2_thp21"]
 [ext_resource type="PackedScene" uid="uid://c1dinpgycpniq" path="res://scenes/rooms/room_3n_1.tscn" id="3_qo48f"]
+[ext_resource type="PackedScene" uid="uid://y8nkreyjf5ul" path="res://scenes/zombie.tscn" id="4_8khm4"]
+[ext_resource type="PackedScene" uid="uid://dxrdb8msr6tnk" path="res://scenes/weapons/wpn_box.tscn" id="5_th6v8"]
+[ext_resource type="PackedScene" uid="uid://c8rkydsmab25x" path="res://scenes/weapons/wpn_rack.tscn" id="6_8wvft"]
+[ext_resource type="PackedScene" uid="uid://defqoglh6711t" path="res://scenes/weapons/wpn_bench.tscn" id="7_2juyd"]
 
 [sub_resource type="NavigationMesh" id="NavigationMesh_b3ue1"]
 vertices = PackedVector3Array(-4.75, 0.5, 14.5, -4.5, 0.5, 16.75, 4.5, 0.5, 16.75, 4.5, 0.5, -4.5, -14.5, 0.5, -4.5, -14.5, 0.5, 14.5, -4.75, 0.5, 14.5, 4.5, 0.5, -4.5, 4.5, 0.5, 16.75, -4.5, 0.5, 16.75, -4.5, 0.5, 24.5, 4.5, 0.5, 24.5)
@@ -98,5 +102,50 @@ next_room = ExtResource("3_qo48f")
 
 [node name="spawn_pt" type="Marker3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.118751, 0, 23.0379)
+
+[node name="zombie" parent="." instance=ExtResource("4_8khm4")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -11, 0, 11)
+
+[node name="zombie2" parent="." instance=ExtResource("4_8khm4")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -9, 0, 7)
+
+[node name="zombie3" parent="." instance=ExtResource("4_8khm4")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -6, 0, 2)
+
+[node name="zombie4" parent="." instance=ExtResource("4_8khm4")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -3, 0, 4)
+
+[node name="zombie5" parent="." instance=ExtResource("4_8khm4")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -6, 0, 8)
+
+[node name="zombie6" parent="." instance=ExtResource("4_8khm4")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1, 0, 6)
+
+[node name="zombie7" parent="." instance=ExtResource("4_8khm4")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -3, 0, 9)
+
+[node name="zombie8" parent="." instance=ExtResource("4_8khm4")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1, 0, 9)
+
+[node name="box" parent="." instance=ExtResource("5_th6v8")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -2, 1.01163, 12.6046)
+
+[node name="box2" parent="." instance=ExtResource("5_th6v8")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -4, 1.01163, 19)
+
+[node name="box3" parent="." instance=ExtResource("5_th6v8")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2.08167, 1.01163, 19.4098)
+
+[node name="box4" parent="." instance=ExtResource("5_th6v8")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2, 1.01163, 13.4045)
+
+[node name="box5" parent="." instance=ExtResource("5_th6v8")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -2.82661, 1.01163, 22.1318)
+
+[node name="rack" parent="." instance=ExtResource("6_8wvft")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -13, 0, 1)
+
+[node name="bench" parent="." instance=ExtResource("7_2juyd")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 3, 1, 1)
 
 [editable path="door"]

@@ -1,8 +1,12 @@
-[gd_scene load_steps=11 format=3 uid="uid://be5jus6kxuktd"]
+[gd_scene load_steps=15 format=3 uid="uid://be5jus6kxuktd"]
 
 [ext_resource type="Script" path="res://scripts/Room.gd" id="1_j50ku"]
 [ext_resource type="PackedScene" uid="uid://d0x7fekjnnueu" path="res://scenes/rooms/door.tscn" id="2_b5oav"]
 [ext_resource type="PackedScene" uid="uid://m2f2ronhrb6" path="res://scenes/rooms/room_1h_1.tscn" id="3_3nruf"]
+[ext_resource type="PackedScene" uid="uid://y8nkreyjf5ul" path="res://scenes/zombie.tscn" id="4_fidx4"]
+[ext_resource type="PackedScene" uid="uid://c8rkydsmab25x" path="res://scenes/weapons/wpn_rack.tscn" id="5_j88dl"]
+[ext_resource type="PackedScene" uid="uid://defqoglh6711t" path="res://scenes/weapons/wpn_bench.tscn" id="6_mxjmj"]
+[ext_resource type="PackedScene" uid="uid://dxrdb8msr6tnk" path="res://scenes/weapons/wpn_box.tscn" id="7_gweyn"]
 
 [sub_resource type="NavigationMesh" id="NavigationMesh_b3ue1"]
 vertices = PackedVector3Array(-14.5, 0.5, 6.75, -5.5, 0.5, 6.75, -5.5, 0.5, 4.75, -5.5, 0.5, 4.75, -3.25, 0.5, 4.5, -3.25, 0.5, -4.5, -5.5, 0.5, 4.75, -3.25, 0.5, -4.5, -14.5, 0.5, -4.5, -14.5, 0.5, 6.75, -3.25, 0.5, 4.5, 4.5, 0.5, 4.5, 4.5, 0.5, -4.5, -3.25, 0.5, -4.5, -5.5, 0.5, 6.75, -14.5, 0.5, 6.75, -14.5, 0.5, 24.5, -5.5, 0.5, 24.5)
@@ -85,5 +89,23 @@ next_room = ExtResource("3_3nruf")
 
 [node name="spawn_pt" type="Marker3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 3, 0, 1)
+
+[node name="zombie" parent="." instance=ExtResource("4_fidx4")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -11, 0, 10)
+
+[node name="zombie2" parent="." instance=ExtResource("4_fidx4")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -9, 0, 0)
+
+[node name="zombie3" parent="." instance=ExtResource("4_fidx4")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -12, 0, 5)
+
+[node name="rack" parent="." instance=ExtResource("5_j88dl")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -13, 0, 16)
+
+[node name="bench" parent="." instance=ExtResource("6_mxjmj")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -7, 0, 10)
+
+[node name="box" parent="." instance=ExtResource("7_gweyn")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -13, 1, 23)
 
 [editable path="door"]

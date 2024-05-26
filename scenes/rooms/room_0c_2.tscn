@@ -1,10 +1,14 @@
-[gd_scene load_steps=12 format=3 uid="uid://bl2qd0aw45bqh"]
+[gd_scene load_steps=16 format=3 uid="uid://bl2qd0aw45bqh"]
 
 [ext_resource type="Script" path="res://scripts/Room.gd" id="1_cm6cw"]
 [ext_resource type="Material" uid="uid://cs41vfkeq752x" path="res://scenes/rooms/floor_mat.tres" id="2_devlc"]
 [ext_resource type="PackedScene" uid="uid://d0x7fekjnnueu" path="res://scenes/rooms/door.tscn" id="3_yew01"]
 [ext_resource type="PackedScene" uid="uid://be5jus6kxuktd" path="res://scenes/rooms/room_1h_0.tscn" id="4_vgndk"]
 [ext_resource type="PackedScene" uid="uid://bmmxab1tahaku" path="res://scenes/chest.tscn" id="5_axek5"]
+[ext_resource type="PackedScene" uid="uid://y8nkreyjf5ul" path="res://scenes/zombie.tscn" id="6_grag2"]
+[ext_resource type="PackedScene" uid="uid://dxrdb8msr6tnk" path="res://scenes/weapons/wpn_box.tscn" id="7_8topg"]
+[ext_resource type="PackedScene" uid="uid://defqoglh6711t" path="res://scenes/weapons/wpn_bench.tscn" id="8_cma7q"]
+[ext_resource type="PackedScene" uid="uid://c8rkydsmab25x" path="res://scenes/weapons/wpn_rack.tscn" id="9_3kw6o"]
 
 [sub_resource type="NavigationMesh" id="NavigationMesh_b3ue1"]
 vertices = PackedVector3Array(-4.5, 0.5, -11.8196, 4.5, 0.5, -11.8196, 4.5, 0.5, -19.5696, -4.5, 0.5, -19.5696, -4.75, 0.5, -9.56962, -6.75, 0.5, -9.56962, -6.75, 0.5, -0.56962, 4.5, 0.5, -9.81962, 4.5, 0.5, -11.8196, -4.5, 0.5, -11.8196, -4.75, 0.5, -9.56962, 6.75, 0.5, -0.56962, 6.75, 0.5, -9.56962, 4.5, 0.5, -9.81962, -4.75, 0.5, -9.56962, -6.75, 0.5, -0.56962, -6.75, 0.5, -0.56962, -6.75, 0.5, -9.56962, -14.5, 0.5, -9.56962, -14.5, 0.5, -0.56962, 6.75, 0.5, -0.56962, 14.5, 0.5, -0.56962, 14.5, 0.5, -9.56962, 6.75, 0.5, -9.56962)
@@ -87,5 +91,26 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.0216877, 0, -2.99238)
 
 [node name="chest" parent="." instance=ExtResource("5_axek5")]
 transform = Transform3D(-0.939196, 0, -0.343381, 0, 1, 0, 0.343381, 0, -0.939196, 0, 0, -18.7397)
+
+[node name="zombie" parent="." instance=ExtResource("6_grag2")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -9, 0, -4)
+
+[node name="zombie2" parent="." instance=ExtResource("6_grag2")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -2, 0, -13)
+
+[node name="zombie3" parent="." instance=ExtResource("6_grag2")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 7, 0, -6)
+
+[node name="box" parent="." instance=ExtResource("7_8topg")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -5, 1, -7)
+
+[node name="box2" parent="." instance=ExtResource("7_8topg")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2, 1, -9)
+
+[node name="bench" parent="." instance=ExtResource("8_cma7q")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -3, 1, -7)
+
+[node name="rack" parent="." instance=ExtResource("9_3kw6o")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 3, 0, -7)
 
 [editable path="door"]
