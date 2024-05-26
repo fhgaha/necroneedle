@@ -4,9 +4,9 @@ class_name MainChar extends CharacterBody3D
 @onready var state_machine: StateMachine = $state_machine
 @onready var anim_player: AnimationPlayer = $main_char/AnimationPlayer
 @onready var root: Node3D = $main_char/Root
-@onready var weapon: Area3D = $main_char/Root/Skeleton3D/BoneAttachment3D/weapon
 @onready var sound: AudioStreamPlayer3D = $sound
 @onready var death_popup: Control = $death_popup
+@onready var wpn_scaler: Node3D = $main_char/Root/Skeleton3D/BoneAttachment3D/weapon_scaler
 
 var gravity: float = ProjectSettings.get_setting("physics/3d/default_gravity")
 var dmg_locked : bool = false
@@ -26,9 +26,6 @@ func _ready() -> void:
 	pass
 
 func _physics_process(delta: float) -> void:
-	#if not is_on_floor():
-		#velocity.y -= gravity * delta
-	#move_and_slide()
 	pass
 
 func play_anim(name: String):
@@ -56,6 +53,7 @@ func _on_damage_reciever_area_entered(area: Area3D) -> void:
 
 func _on_yes_button_up() -> void:
 	$main_char.show()
+	rotation = Vector3.ZERO
 	death_popup.hide()
 	cur_health = health_max
 	var world = get_parent() as World
@@ -73,4 +71,20 @@ func death():
 
 func _on_death_area_body_entered(body: Node3D) -> void:
 	death()
+	pass
+
+var push_force = 1.0
+func push():
+	for i in get_slide_collision_count():
+		var c = get_slide_collision(i)
+		if c.get_collider() is RigidBody3D:
+			c.get_collider().apply_central_impulse(-c.get_normal() * push_force)
+
+func take_in_hand(wpn: Node3D):
+	wpn_scaler.get_child(0).queue_free()
+	await get_tree().process_frame
+	wpn.name = "default_weapon"
+	wpn.reparent(wpn_scaler, false)
+	wpn.position = Vector3.ZERO
+	wpn.rotation = Vector3.ZERO
 	pass

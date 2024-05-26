@@ -48,4 +48,5 @@ func move(_delta: float):
 		player.velocity.z = 0
 
 	player.move_and_slide()
+	player.push()
 	pass

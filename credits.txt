@@ -10,6 +10,7 @@ audio
 main song https://freesound.org/people/Seth_Makes_Sounds/sounds/684614/
 zombie hit sound: https://freesound.org/people/tonsil5/sounds/555420/
 slap sound: https://pixabay.com/sound-effects/hard-slap-46388/
+weapons https://kaylousberg.itch.io/kaykit-dungeon/download/eyJpZCI6ODI0NTg2LCJleHBpcmVzIjoxNzE2NjY3NzM2fQ%3d%3d%2e34rf1l3t97KFr%2fx6243TdX0gZ2Q%3d
 
 addons:
 phantom camera
