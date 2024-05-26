@@ -1954,3 +1954,5 @@ text = "Nah.. Quit"
 [connection signal="area_entered" from="damage_reciever" to="." method="_on_damage_reciever_area_entered"]
 [connection signal="button_up" from="death_popup/ColorRect/MarginContainer/VBoxContainer/HBoxContainer/Yes" to="." method="_on_yes_button_up"]
 [connection signal="button_up" from="death_popup/ColorRect/MarginContainer/VBoxContainer/HBoxContainer/No" to="." method="_on_no_button_up"]
+
+[editable path="main_char/Root/Skeleton3D/BoneAttachment3D/weapon_scaler/default_weapon"]

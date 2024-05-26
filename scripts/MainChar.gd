@@ -7,7 +7,7 @@ class_name MainChar extends CharacterBody3D
 @onready var sound: AudioStreamPlayer3D = $sound
 @onready var death_popup: Control = $death_popup
 @onready var wpn_scaler: Node3D = $main_char/Root/Skeleton3D/BoneAttachment3D/weapon_scaler
-
+const DEFAULT_WEAPON = preload("res://scenes/weapons/default_weapon.tscn")
 var gravity: float = ProjectSettings.get_setting("physics/3d/default_gravity")
 var dmg_locked : bool = false
 var health_max : int = 5
@@ -80,11 +80,23 @@ func push():
 		if c.get_collider() is RigidBody3D:
 			c.get_collider().apply_central_impulse(-c.get_normal() * push_force)
 
-func take_in_hand(wpn: Node3D):
+func take_in_hand(wpn: WeaponInHand):
 	wpn_scaler.get_child(0).queue_free()
 	await get_tree().process_frame
 	wpn.name = "default_weapon"
 	wpn.reparent(wpn_scaler, false)
 	wpn.position = Vector3.ZERO
 	wpn.rotation = Vector3.ZERO
+	wpn.broken.connect(on_weapon_break)
+	pass
+
+func on_weapon_break(sender: WeaponInHand):
+	assert(sender.broken.is_connected(on_weapon_break))
+	sender.disconnect("broken", on_weapon_break)
+	
+	var def_wpn = DEFAULT_WEAPON.instantiate()
+	sender.queue_free()
+	wpn_scaler.add_child(def_wpn)
+	await get_tree().process_frame
+	def_wpn.name = "default_weapon"
 	pass

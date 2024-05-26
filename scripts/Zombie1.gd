@@ -71,7 +71,9 @@ func _on_damage_reciever_area_entered(area: Area3D) -> void:
 	#print(name)
 	dmg_locked = true
 	#print("_on_damage_reciever_area_entered")
-	cur_health -= 1
+	var wpn = area as WeaponInHand
+	cur_health -= wpn.damage
+	wpn.check_broken()
 	#print(cur_health)
 	mat.albedo_texture = null
 	await get_tree().create_timer(0.2).timeout

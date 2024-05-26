@@ -1,6 +1,7 @@
-[gd_scene load_steps=10 format=3 uid="uid://bff2cs2mqb2cd"]
+[gd_scene load_steps=11 format=3 uid="uid://bff2cs2mqb2cd"]
 
 [ext_resource type="Script" path="res://scripts/Weapon.gd" id="1_bhfpi"]
+[ext_resource type="Script" path="res://scripts/WeaponInHand.gd" id="2_dmvae"]
 
 [sub_resource type="ConvexPolygonShape3D" id="ConvexPolygonShape3D_ynb7p"]
 points = PackedVector3Array(0.585669, 0.376153, -0.512192, 0.0226381, 0.328838, -0.53366, 0.0148075, 0.0075039, -0.389956, 0.00478426, 0.0333781, 0.00196499, 0.59561, 0.000994121, -0.0156101, 0.585192, 0.0075039, -0.389956, 0.0143304, 0.376153, -0.512192, 0.595216, 0.0333781, 0.00196499, 0.596304, 0.343066, -0.533341, 0.0136611, 0.00100168, -0.00633894, -0.00476193, 0.357102, -0.502677, -0.00476193, 0.0333781, -0.00760451, 0.604762, 0.357102, -0.502677, 0.585466, 0.351442, -0.541241, 0.604762, 0.0333781, -0.00760451, 0.0145341, 0.351442, -0.541241, 0.577362, 0.328838, -0.53366, 0.585669, 0.376153, -0.521707, 0.586339, 0.00100166, -0.00633892, 0.00438986, 0.000994143, -0.0156101, 0.0143304, 0.376153, -0.521707, 0.00369573, 0.343066, -0.533341, 0.0267677, 0.358733, -0.538338, 0.573232, 0.358733, -0.538338, 0.0121423, 0.311606, -0.525954, 0.587858, 0.311606, -0.525954)
@@ -120,6 +121,9 @@ shape = SubResource("BoxShape3D_1iic7")
 [node name="dmg_dealer" type="Area3D" parent="."]
 collision_layer = 8
 collision_mask = 2
+script = ExtResource("2_dmvae")
+durability = 3
+damage = 2
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="dmg_dealer"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -0.285307)

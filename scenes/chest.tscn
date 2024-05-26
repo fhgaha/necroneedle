@@ -160,7 +160,7 @@ shape = SubResource("CylinderShape3D_32f28")
 transform = Transform3D(0.997085, 0, -0.0763014, 0, 1, 0, 0.0763014, 0, 0.997085, 0, 0.294913, 0)
 
 [node name="Node3D" parent="Hare" index="1"]
-transform = Transform3D(-1, -6.36468e-08, 3.60131e-09, 6.22011e-09, -0.0411939, 0.999151, -6.34444e-08, 0.999151, 0.0411939, 0, 0.252141, 0)
+transform = Transform3D(-1, -6.36467e-08, 3.60131e-09, 6.22011e-09, -0.0411939, 0.999151, -6.34443e-08, 0.999151, 0.0411939, 0, 0.252141, 0)
 
 [node name="CollisionShape3D" parent="Hare/damage_reciever" index="0"]
 disabled = true

@@ -1,7 +1,7 @@
-class_name Weapon extends RigidBody3D
+class_name WeaponOnGround extends RigidBody3D
 
 @onready var player_detector_shape: CollisionShape3D = $player_detector/CollisionShape3D
-@onready var dmg_dealer: Area3D = $dmg_dealer
+@onready var dmg_dealer: WeaponInHand = $dmg_dealer
 @onready var dmg_dealer_shape: CollisionShape3D = $dmg_dealer/CollisionShape3D
 
 var player : MainChar
