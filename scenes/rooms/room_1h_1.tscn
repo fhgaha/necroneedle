@@ -127,7 +127,7 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -3, 0, -1)
 transform = Transform3D(0.054532, 0, 0.998512, 0, 1, 0, -0.998512, 0, 0.054532, 22, 0, 9.55916)
 
 [node name="Node3D" parent="Hare" index="1"]
-transform = Transform3D(-1, -6.36471e-08, 3.60129e-09, 6.22011e-09, -0.0411939, 0.999151, -6.34447e-08, 0.999151, 0.0411939, 0, 0.252141, 0)
+transform = Transform3D(-1, 6.93276e-11, -3.48098e-09, -3.48098e-09, -0.0398177, 0.999207, -6.93277e-11, 0.999207, 0.0398177, 0, 0, 0)
 
 [node name="zombie" parent="." instance=ExtResource("5_oxpns")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 20.0226, 2.38419e-07, 12.3745)
